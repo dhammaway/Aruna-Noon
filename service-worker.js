@@ -2,6 +2,7 @@ const CACHE_NAME = 'my-cache-v1';
 const urlsToCache = [
   '/Aruna-Noon/',
   '/Aruna-Noon/404.html',
+  '/Aruna-Noon/offline.html', // Add this line
   '/Aruna-Noon/icon_192x192.png',
   '/Aruna-Noon/icon_512x512.png',
   '/Aruna-Noon/index.html',
@@ -70,8 +71,8 @@ self.addEventListener('fetch', (event) => {
               });
           })
           .catch(() => {
-            // Fallback to a custom offline page or response
-            return new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
+            // Fallback to the offline page
+            return caches.match('/Aruna-Noon/offline.html');
           });
       })
   );
