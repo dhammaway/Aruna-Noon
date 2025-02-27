@@ -2,6 +2,8 @@ const CACHE_NAME = 'my-cache-v1';
 const urlsToCache = [
   '/Aruna-Noon/',
   '/Aruna-Noon/index.html',
+  '/Aruna-Noon/service-worker.js',
+  '/Aruna-Noon/vite-config.js',
   '/Aruna-Noon/public/manifest.webmanifest',
   '/Aruna-Noon/public/icon_192x192.png',
   '/Aruna-Noon/public/icon_512x512.png',
@@ -28,10 +30,25 @@ const urlsToCache = [
 
 // Install event - caching static assets
 self.addEventListener('install', (event) => {
+  console.log('Service Worker installing...');
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
-        return cache.addAll(urlsToCache);
+        console.log('Caching assets...');
+        return Promise.all(
+          urlsToCache.map((url) => {
+            return cache.add(url)
+              .then(() => {
+                console.log('Cached:', url);
+              })
+              .catch((error) => {
+                console.error('Failed to cache:', url, error);
+              });
+          })
+        );
+      })
+      .then(() => {
+        console.log('All assets cached successfully.');
       })
       .catch((error) => {
         console.error('Failed to cache assets:', error);
@@ -41,13 +58,18 @@ self.addEventListener('install', (event) => {
 
 // Fetch event - serve cached content when offline
 self.addEventListener('fetch', (event) => {
+  console.log('Fetching:', event.request.url);
   event.respondWith(
     caches.match(event.request)
       .then((cachedResponse) => {
-        // Return cached response if available, otherwise fetch from network
-        return cachedResponse || fetch(event.request)
+        if (cachedResponse) {
+          console.log('Serving from cache:', event.request.url);
+          return cachedResponse;
+        }
+        console.log('Fetching from network:', event.request.url);
+        return fetch(event.request)
           .then((response) => {
-            // Optionally cache the fetched response for future use
+            // Cache the fetched response for future use
             return caches.open(CACHE_NAME)
               .then((cache) => {
                 cache.put(event.request, response.clone());
@@ -64,12 +86,14 @@ self.addEventListener('fetch', (event) => {
 
 // Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
+  console.log('Service Worker activating...');
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
           if (!cacheWhitelist.includes(cacheName)) {
+            console.log('Deleting old cache:', cacheName);
             return caches.delete(cacheName);
           }
         })
