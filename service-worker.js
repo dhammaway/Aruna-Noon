@@ -14,7 +14,7 @@ const urlsToCache = [
   '/Aruna-Noon/assets/first-quarter-BDV1XYf_.png',
   '/Aruna-Noon/assets/full-moon-CkY63sja.png',
   '/Aruna-Noon/assets/html2canvas.esm-CBrSDip1.js',
-  '/Aruna-Noon/assets/index.es-B7pQjB6u.js',
+  '/Aruna-Noon/assets/index.es-Bsyytv-0.js',
   '/Aruna-Noon/assets/index-BJ8YCTSa.js',
   '/Aruna-Noon/assets/index-AmpjDRPl.css',
   '/Aruna-Noon/assets/last-quarter-i3ORQntx.png',
