@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-cache-v2';
+const CACHE_NAME = 'my-cache-v1.2';
 const urlsToCache = [
   '/Aruna-Noon/',
   '/Aruna-Noon/404.html',
@@ -14,8 +14,8 @@ const urlsToCache = [
   '/Aruna-Noon/assets/first-quarter-BDV1XYf_.png',
   '/Aruna-Noon/assets/full-moon-CkY63sja.png',
   '/Aruna-Noon/assets/html2canvas.esm-CBrSDip1.js',
-  '/Aruna-Noon/assets/index.es-BIsZameW.js',
-  '/Aruna-Noon/assets/index-BzBkwxVO.js',
+  '/Aruna-Noon/assets/index.es-B9mbKANu.js',
+  '/Aruna-Noon/assets/index-D9GWhjvU.js',
   '/Aruna-Noon/assets/index-BlyHCSMr.css',
   '/Aruna-Noon/assets/last-quarter-i3ORQntx.png',
   '/Aruna-Noon/assets/new-moon-B8k05m4x.png',
