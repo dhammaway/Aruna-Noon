@@ -1,25 +1,25 @@
 const CACHE_NAME = 'my-cache-v2.1';
 const urlsToCache = [
-  '/Aruna-Noon/',
-  '/Aruna-Noon/404.html',
-  '/Aruna-Noon/offline.html',
-  '/Aruna-Noon/icon_192x192.png',
-  '/Aruna-Noon/icon_512x512.png',
-  '/Aruna-Noon/index.html',
-  '/Aruna-Noon/service-worker.js',
-  '/Aruna-Noon/manifest.webmanifest',
-  '/Aruna-Noon/registerSW.js',
-  '/Aruna-Noon/sw.js',
-  '/Aruna-Noon/workbox-5ffe50d4.js',
-  '/Aruna-Noon/assets/first-quarter-Bz0yd6Ym.png',
-  '/Aruna-Noon/assets/full-moon-CkY63sja.png',
-  '/Aruna-Noon/assets/html2canvas.esm-CBrSDip1.js',
-  '/Aruna-Noon/assets/index-BlpszIxV.css',
-  '/Aruna-Noon/assets/index.es-LOlZIImG.js',
-  '/Aruna-Noon/assets/index-EtEqVQKM.js',
-  '/Aruna-Noon/assets/last-quarter-D35LRZyu.png',
-  '/Aruna-Noon/assets/new-moon-B8k05m4x.png',
-  '/Aruna-Noon/assets/purify.es-Ci5xwkH_.js',
+  '/aruna-noon/',
+  '/aruna-noon/404.html',
+  '/aruna-noon/offline.html',
+  '/aruna-noon/icon_192x192.png',
+  '/aruna-noon/icon_512x512.png',
+  '/aruna-noon/index.html',
+  '/aruna-noon/service-worker.js',
+  '/aruna-noon/manifest.webmanifest',
+  '/aruna-noon/registerSW.js',
+  '/aruna-noon/sw.js',
+  '/aruna-noon/workbox-5ffe50d4.js',
+  '/aruna-noon/assets/first-quarter-Bz0yd6Ym.png',
+  '/aruna-noon/assets/full-moon-CkY63sja.png',
+  '/aruna-noon/assets/html2canvas.esm-CBrSDip1.js',
+  '/aruna-noon/assets/index-BlpszIxV.css',
+  '/aruna-noon/assets/index.es-LOlZIImG.js',
+  '/aruna-noon/assets/index-EtEqVQKM.js',
+  '/aruna-noon/assets/last-quarter-D35LRZyu.png',
+  '/aruna-noon/assets/new-moon-B8k05m4x.png',
+  '/aruna-noon/assets/purify.es-Ci5xwkH_.js',
 ];
 
 // Install event - caching static assets
@@ -72,7 +72,7 @@ self.addEventListener('fetch', (event) => {
           })
           .catch(() => {
             // Fallback to the offline page
-            return caches.match('/Aruna-Noon/offline.html');
+            return caches.match('/aruna-noon/offline.html');
           });
       })
   );
